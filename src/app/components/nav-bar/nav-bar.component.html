@@ -2,6 +2,6 @@
   <h3 [style.color]="'white'">ADMIN PORTAL</h3>
   <span class="menu-spacer"></span>
   <span [hidden]="!loggedIn"><a mat-button>View Book</a></span>
-  <span [hidden]="!loggedIn"><a mat-button>Add a Book</a></span>
+  <span [hidden]="!loggedIn"><a mat-button routerLink="/addBook">Add a Book</a></span>
   <span [hidden]="!loggedIn"><a mat-button (click)="logout()">Logout</a></span>
 </mat-toolbar>
