@@ -1,0 +1,6 @@
+.slider-spacer {
+  /*flex: 1 1 auto;*/
+  display: flex;
+  flex-flow: row wrap;
+  justify-items: auto;
+}
