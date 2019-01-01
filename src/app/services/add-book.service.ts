@@ -11,7 +11,7 @@ export class AddBookService {
   }
 
   sendBook(book: Book) {
-    const url = 'http://localhost:8181/books';
+    const url = 'http://localhost:8181/v1/books';
 
     const headers = new Headers({
       'Content-Type': 'application/json',
