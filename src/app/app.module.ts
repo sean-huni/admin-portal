@@ -13,6 +13,7 @@ import 'hammerjs';
 import {MatGridListModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { HttpClientModule } from '@angular/common/http';
 
 import {LoginService} from './services/login.service';
 import {AddBookService} from './services/add-book.service';
@@ -48,7 +49,8 @@ import {DateAdapter, MAT_DATE_FORMATS} from '@angular/material/core';
     MatSlideToggleModule,
     FormsModule,
     routing,
-    MatDatepickerModule
+    MatDatepickerModule,
+    HttpClientModule
   ],
   providers: [
     LoginService,
