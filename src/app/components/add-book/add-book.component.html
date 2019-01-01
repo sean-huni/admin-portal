@@ -28,9 +28,9 @@
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-form-field>
-            <input matInput id="datePublished" type="date" required [(ngModel)]="newBook.datePublished"
-                   name="datePublished"
-                   placeholder="Date Published">
+            <input matInput  id="datePublished"  name="datePublished" [matDatepicker]="dp" placeholder="Date Published" required [(ngModel)]="newBook.datePublished">
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp></mat-datepicker>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
