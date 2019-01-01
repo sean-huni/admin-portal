@@ -31,7 +31,7 @@ export class UploadImgService {
       var formData: any = new FormData();
       var xhr = new XMLHttpRequest();
       for (var i = 0; i < files.length; i++) {
-        formData.append('multipartFile', files[i].name);
+        formData.append('multipart', files[i].name);
       }
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
@@ -43,7 +43,7 @@ export class UploadImgService {
         }
       };
 
-      xhr.open('PUT', url, true);
+      xhr.open('POST', url, true);
       xhr.setRequestHeader('x-auth-token', localStorage.getItem('xAuthToken'));
       xhr.send(formData);
     });
