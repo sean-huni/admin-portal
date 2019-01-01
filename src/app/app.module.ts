@@ -16,6 +16,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import {LoginService} from './services/login.service';
 import {AddBookService} from './services/add-book.service';
+import {UploadImgService} from './services/upload-img.service';
 
 import {AppComponent} from './app.component';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
@@ -52,6 +53,7 @@ import {DateAdapter, MAT_DATE_FORMATS} from '@angular/material/core';
   providers: [
     LoginService,
     AddBookService,
+    UploadImgService,
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}
