@@ -1,19 +1,19 @@
 import {Injectable} from '@angular/core';
-import {Headers, Http} from '@angular/http';
 import {Book} from '../model/book';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddBookService {
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
   }
 
   sendBook(book: Book) {
     const url = 'http://localhost:8181/v1/books';
 
-    const headers = new Headers({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'x-auth-token': localStorage.getItem('xAuthToken')
     });

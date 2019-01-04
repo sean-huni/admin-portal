@@ -34,9 +34,11 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
     this.loginService.checkSession().subscribe(
       res => {
+        console.log('Check Session Resp: ', res);
         this.loggedIn = true;
       },
       error => {
+        console.log('Check Session Error: ', error);
         this.loggedIn = false;
       }
     );

@@ -10,11 +10,12 @@ import {HttpEventType, HttpResponse} from '@angular/common/http';
   styleUrls: ['./add-book.component.css']
 })
 export class AddBookComponent implements OnInit {
-  selectedFiles: FileList;
-  currentFileUpload: File;
+  private imgSelectedForUpload = false;
+  private selectedFiles: FileList;
+  private currentFileUpload: File;
   private newBook: Book = new Book();
   private bookAdded: boolean;
-  progress: { percentage: number } = {percentage: 0};
+  private progress: { percentage: number } = {percentage: 0};
 
 
   constructor(private addBookService: AddBookService, private uploadImgService: UploadImgService) {
@@ -28,25 +29,31 @@ export class AddBookComponent implements OnInit {
 
   selectFile(event) {
     this.selectedFiles = event.target.files;
+    this.imgSelectedForUpload = true;
   }
 
   onSubmit() {
     this.progress.percentage = 0;
-    this.currentFileUpload = this.selectedFiles.item(0);
+    if (this.imgSelectedForUpload && this.selectedFiles != null) {
+      this.currentFileUpload = this.selectedFiles.item(0);
+    }
+
     this.addBookService.sendBook(this.newBook).subscribe(
       res => {
         console.log(res);
-        this.uploadImgService.pushFileToStorage(JSON.parse(JSON.parse(JSON.stringify(res))._body).id, this.currentFileUpload).subscribe(
-          event => {
-            console.log(event);
-            if (event.type === HttpEventType.UploadProgress) {
-              this.progress.percentage = Math.round(100 * event.loaded / event.total);
-            } else if (event instanceof HttpResponse) {
-              console.log('File is completely uploaded!');
-            }
-          }, error1 => {
-            console.log(error1);
-          });
+        if (this.imgSelectedForUpload && this.currentFileUpload != null) {
+          this.uploadImgService.pushFileToStorage(JSON.parse(JSON.parse(JSON.stringify(res))._body).id, this.currentFileUpload).subscribe(
+            event => {
+              console.log(event);
+              if (event.type === HttpEventType.UploadProgress) {
+                this.progress.percentage = Math.round(100 * event.loaded / event.total);
+              } else if (event instanceof HttpResponse) {
+                console.log('File is completely uploaded!');
+              }
+            }, uploadError => {
+              console.log(uploadError);
+            });
+        }
       },
       error => {
         console.log(error);
