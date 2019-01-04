@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginService} from '../../services/login.service';
+import {LoginService} from '../../services/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,9 @@ export class LoginComponent implements OnInit {
     this.loginService.sendCredential(this.credential.username, this.credential.password).subscribe(
       res => {
         console.log(res);
-        localStorage.setItem('xAuthToken', res.json().token);
+        const tokenStr = res['token'];
+        console.log(tokenStr);
+        localStorage.setItem('xAuthToken', tokenStr);
         this.loggedIn = true;
         location.reload();
       },
@@ -31,9 +33,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginService.checkSession().subscribe(
       res => {
+        console.log('Check Session Resp: ', res);
         this.loggedIn = true;
       },
       error => {
+        console.log('Check Session Error: ', error);
         this.loggedIn = false;
       }
     );
