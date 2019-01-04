@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../../model/book';
-import {AddBookService} from '../../services/add-book.service';
-import {UploadImgService} from '../../services/upload-img.service';
+import {AddBookService} from '../../services/add-book/add-book.service';
+import {UploadImgService} from '../../services/upload-img/upload-img.service';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
 
 @Component({
@@ -42,7 +42,7 @@ export class AddBookComponent implements OnInit {
       res => {
         console.log(res);
         if (this.imgSelectedForUpload && this.currentFileUpload != null) {
-          this.uploadImgService.pushFileToStorage(JSON.parse(JSON.parse(JSON.stringify(res))._body).id, this.currentFileUpload).subscribe(
+          this.uploadImgService.pushFileToStorage(JSON.parse(JSON.stringify(res)).id, this.currentFileUpload).subscribe(
             event => {
               console.log(event);
               if (event.type === HttpEventType.UploadProgress) {

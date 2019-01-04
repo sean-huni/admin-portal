@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Params, ActivatedRoute, Router} from '@angular/router';
 import {Book} from '../../model/book';
-import {ViewBookService} from '../../services/view-book.service';
+import {ViewBookService} from '../../services/view-book/view-book.service';
 
 @Component({
   selector: 'app-view-detail',

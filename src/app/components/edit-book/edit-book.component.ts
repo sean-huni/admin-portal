@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {UploadImgService} from '../../services/upload-img.service';
+import {UploadImgService} from '../../services/upload-img/upload-img.service';
 import {Book} from '../../model/book';
 import {Params, ActivatedRoute, Router, Route} from '@angular/router';
-import {ViewBookService} from '../../services/view-book.service';
-import {EditBookService} from '../../services/edit-book.service';
+import {ViewBookService} from '../../services/view-book/view-book.service';
+import {EditBookService} from '../../services/edit-book/edit-book.service';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
 import { FormControl } from '@angular/forms';
 

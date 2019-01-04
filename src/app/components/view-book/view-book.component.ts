@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../../model/book';
 import {Router} from '@angular/router';
-import {LoginService} from '../../services/login.service';
-import {DeleteBookService} from '../../services/delete-book.service';
-import {ViewBookService} from '../../services/view-book.service';
+import {LoginService} from '../../services/login/login.service';
+import {DeleteBookService} from '../../services/delete-book/delete-book.service';
+import {ViewBookService} from '../../services/view-book/view-book.service';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {ConfirmationComponent} from '../dialog/confirmation/confirmation.component';
 

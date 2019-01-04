@@ -17,12 +17,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 
-import {LoginService} from './services/login.service';
-import {AddBookService} from './services/add-book.service';
-import {UploadImgService} from './services/upload-img.service';
-import {ViewBookService} from './services/view-book.service';
-import {DeleteBookService} from './services/delete-book.service';
-import {EditBookService} from './services/edit-book.service';
+import {LoginService} from './services/login/login.service';
+import {AddBookService} from './services/add-book/add-book.service';
+import {UploadImgService} from './services/upload-img/upload-img.service';
+import {ViewBookService} from './services/view-book/view-book.service';
+import {DeleteBookService} from './services/delete-book/delete-book.service';
+import {EditBookService} from './services/edit-book/edit-book.service';
 
 import {AppComponent} from './app.component';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';

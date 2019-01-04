@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {reject} from 'q';
 import {HttpClient, HttpEvent, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Book} from '../model/book';
+import {Book} from '../../model/book';
 
 @Injectable({
   providedIn: 'root'
